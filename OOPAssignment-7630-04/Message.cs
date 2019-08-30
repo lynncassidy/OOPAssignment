@@ -7,46 +7,47 @@ using System.Threading.Tasks;
 namespace OOPLynn
 
 {
-    public class Message
+    public abstract class Message
     {
-        private string sender { get => this.sender; set => this.sender = value; }
-        private List <string> recipient { get => this.recipient; set => this.recipient = value; }
-        private bool status { get => this.status; set => this.status = value; }
+        private string sender;
+        public string Sender { get => this.sender; set => this.sender = value; }
+        private string recipient;
+        public string Recipient { get => this.recipient; set => this.recipient = value; }
+        private bool status;
+        public bool Status { get => this.status; set => this.status = value; }
+        private MessageContent content;
+        public MessageContent Content { get => this.content; set => this.content = value; }
+
+       
 
 
-        // Constructor says user has to give these 3 things in order to work
-        public Message(string sender, List<string> recipient, bool status)
+
+        // Constructor says user has to give these 4 things in order to make message object 
+        // Constructor makes message object
+        public Message(string sender, string recipient, bool status, string text)
         {
             this.sender = sender;
             this.recipient = recipient;
             this.status = status;
-           
+            this.content = new MessageContent(text);
         }
 
-
-
-            public List<string> getRecipient()
-            {
-                Console.WriteLine("Enter the recipients number here: ");
-                sender = Console.ReadLine();
-                return (recipient);
-            }
-
-            public bool getReceivedStatus()
-            {
-                //if
-                return (status);
-            }
-
-            public string getSender()
-            {
-                Console.WriteLine("Enter your number here: ");
-                sender = Console.ReadLine();
-                return (sender);
-            }
-            //Method to get recipient from user
-
-
-
+        //MMS
+        public Message(string sender, string recipient, bool status, string text, string fileName, MessageType type)
+        {
+            this.sender = sender;
+            this.recipient = recipient;
+            this.status = status;
+            this.content = new MessageContent(text, type, fileName);
         }
+
+        //Method that returns true if sent and false if not sent
+        public bool isMessageSent()
+        {
+            return status;
+        }
+
+       
+    }
 }
+

@@ -13,9 +13,9 @@ namespace TestOOPProject
     {
         static void Main(string[] args)
         {
-            SMS testSMS = new SMS("", null, false);
+            SMS testSMS = new SMS("", null, false, "");
 
-            Console.WriteLine(testSMS.);
+            Console.WriteLine(testSMS);
         }
         
     

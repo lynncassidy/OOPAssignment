@@ -10,26 +10,31 @@ namespace OOPLynn
     {
 
         //Constructor 
-        public SMS(string sender, List<string> recipient, bool status) : base(sender, recipient, status)
+        public SMS(string sender, string recipient, bool status, string content) : base(sender, recipient, status, content)
         {
 
         }
-    }
+
+    }   
     
-
-    class SMSContent
-    {
-        private string messageContent;
-
-        public SMSContent(string messageData )
-        {
-            messageContent = messageData;
-        }
-
-
-        public string getMessage()
-        {
-            return (messageContent);
-        }
-    }
 }
+    
+    // Method to store text data 
+    //class SMSContent
+    //{
+    //    private string messageContent;
+
+    //    public SMSContent(string messageData )
+    //    {
+    //        messageContent = messageData;
+    //    }
+
+
+        //public string getMessage()
+        //{
+        //    return (messageContent);
+        //}
+
+        //Message GROUP
+        
+  
